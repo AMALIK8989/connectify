@@ -1,0 +1,58 @@
+@font-face {
+    font-family: 'BEMICYtrial'; /* Name of the font */
+    src: url('../fonts/BEMICYtrial.otf') format('opentype'); /* Path to your font file */
+    font-weight: 800;
+    font-style: normal;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root{
+    --mxw:100%;
+    --mxh:auto;
+    --jxw:1200px;
+    --jxh:900px;
+    --gradient-start: #9b4dca; /* Electric Purple */
+    --gradient-middle: #e10098; /* Neon Pink */
+    --gradient-end: #d5006b; /* Magenta */
+}
+header{
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-middle), var(--gradient-end));
+    height: 900px !important;
+}
+.navbar{
+    background-color: transparent !important;
+    width: 100% !important;
+}
+#hero-sect{
+    width: var(--mxw);
+    height: var(--jxh);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+}
+
+#hero-carousel {
+    text-align: center; /* Align carousel items centrally */
+}
+
+.owl-carousel .item p {
+    padding: 20px;
+    margin: 10px;
+    border-radius: 5px;
+    color: white !important;
+    font-family: BEMICYtrial !important;
+    font-size: larger;
+}
+
+@media (max-width: 768px) {
+    #hero-column, #hero-carousel {
+        text-align: center; /* Center content on smaller screens */
+    }
+}
