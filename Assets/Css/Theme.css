@@ -21,6 +21,7 @@
 }
 header{
     background: linear-gradient(135deg, var(--gradient-start), var(--gradient-middle), var(--gradient-end));
+    
     height: 900px !important;
 }
 .navbar{
@@ -47,12 +48,40 @@ header{
     margin: 10px;
     border-radius: 5px;
     color: white !important;
-    font-family: BEMICYtrial !important;
+    /* font-family: BEMICYtrial !important; */
     font-size: larger;
 }
 
 @media (max-width: 768px) {
     #hero-column, #hero-carousel {
         text-align: center; /* Center content on smaller screens */
+    }
+}
+/* Apply radial gradient background at four corners */
+.container-about {
+    position: relative;
+    background: radial-gradient(circle at top left, rgba(155, 77, 202, 0.7), transparent 50%),
+                radial-gradient(circle at top right, rgba(225, 0, 152, 0.7), transparent 50%),
+                radial-gradient(circle at bottom left, rgba(213, 0, 107, 0.7), transparent 50%),
+                radial-gradient(circle at bottom right, rgba(255, 0, 128, 0.7), transparent 50%);
+    background-color: #1a1a1a; /* Dark base color to enhance visibility */
+    padding: 50px 0 !important;
+    color: white !important;
+}
+
+/* Ensure text readability */
+.container-about h1, 
+.container-about h2, 
+.container-about p {
+    color: white !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .container-about {
+        text-align: center !important;
+    }
+    .col-md-6 {
+        width: 100% !important;
     }
 }
