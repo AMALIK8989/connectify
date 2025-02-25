@@ -10,6 +10,15 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
     <script src="./Assets/Js/all.js"></script>
+    <link rel="stylesheet" href="./Assets/Css/coreui.min.css">
+    <script src="./Assets/Js/coreui.min.js"></script>
+    <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+/>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
     <script src="./Assets/Js/bootstrap.min.js"></script>
     <script
     src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"
@@ -43,14 +52,14 @@
 </head>
 <body>
     <header class="container-fluid">
-        <nav class="navbar navbar-expand-lg navbar-light">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
                 <!-- Logo -->
                 <a class="navbar-brand" href="#">
-                    <img src="./Assets/Logo.png" alt="Logo" width="30" height="30" class="d-inline-block align-text-top img-logo" />
+                    <img src="./Assets/Logo.png" alt="Logo" width="30" height="30" class="d-inline-block align-text-top img-logo" id="image-nav"/>
                 </a>
     
-                <!-- Navbar Toggler for small screens -->
+                <!-- Navbar Toggler for Small Screens -->
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -58,13 +67,26 @@
     
                 <!-- Navbar Links -->
                 <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <!-- Add navbar links here -->
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#hero-sect">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#about-sect">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#features-sect">Features</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#plans-sect">Plans</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#contact-sect">Contact</a>
+                        </li>
                     </ul>
-                </div> <!-- Closing div for collapse -->
-            </div> <!-- Closing div for container-fluid -->
+                </div> 
+            </div> 
         </nav>
-    
 
 <section class="container-fluid hero-section d-flex align-items-center text-center text-white" id="hero-sect">
     <div class="container" id="hero-here">
@@ -102,13 +124,13 @@
 
     </header>
     <main>
-        <section class="container-fluid px-3 py-3 container-about">
+        <section class="container-fluid  container-about px-3 py-3">
             <h1 class="text-center mb-4">About Us</h1>
-            <div class="content container">
+            <div class="content">
                 <div class="row justify-content-center">
                     <!-- Image Section -->
                     <div class="col-md-6 d-flex align-items-center justify-content-center">
-                        <img src="./Assets/Logo.png" alt="About Connectify" class="img-fluid rounded">
+                        <img src="./Assets/Logo.png" alt="About Connectify" class="img-fluid rounded" id="image-about">
                     </div>
         
                     <!-- Text Content -->
@@ -116,21 +138,226 @@
                         <div>
                             <h2>Welcome to Connectify!</h2>
                             <p>
-                                Connectify is a next-generation social media platform designed to empower creators, foster meaningful communities, and enhance real-time engagement. 
-                                Whether you want to share your thoughts, build a thriving community, or connect with like-minded individuals, Connectify makes it all possible.
+                                Connectify is a dynamic social platform built for meaningful interactions, creative expression, and seamless connectivity. 
+                                Whether you want to share ideas, engage with communities, or collaborate with others, Connectify provides the tools to make it happen.
                             </p>
                             <p>
-                                With features inspired by **YouTube, Reddit, Quora, and Facebook**, we bring together the best of content creation, discussions, Q&A, and seamless messaging—all in one powerful platform.
+                                Designed to bring people together, our platform offers a space where conversations thrive, creativity flourishes, and every voice matters.
                             </p>
                             <p>
-                                At Connectify, we believe in the power of **authentic connections, engaging discussions, and limitless creativity**. Join us today and be part of a vibrant digital community!
+                                Join Connectify today and be part of a growing digital world where innovation, engagement, and authentic connections come to life.
+
                             </p>
+                            <div class="btn">
+                                <a href="" class="btn btn-secondary" id="about-btn">Learn More</a>
+                            </div>
+                        </div>
+                       
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="features container-fluid px-3 py-3" id="features-sect">
+            <h1 class="text-center mb-4">Features</h1>
+            <div class="container" id="feature-container">
+                <div class="row justify-content-center" id="row-card" style="gap: 10px;">
+                    <!-- Feature 1 -->
+                    <div class="col-sm-12 col-md-6 col-lg-3 col-xl-4">
+                        <div class="feature-box text-center p-3">
+                            <i class="bi bi-people-fill display-4 text-primary"></i>
+                            <h4 class="mt-3">Community Engagement</h4>
+                            <p>Connect, share, and interact with like-minded individuals in vibrant communities.</p>
+                        </div>
+                    </div>
+        
+                    <!-- Feature 2 -->
+                    <div class="col-sm-12 col-md-6 col-lg-3 col-xl-4">
+                        <div class="feature-box text-center p-3 card">
+                            <i class="bi bi-chat-dots-fill display-4 text-success"></i>
+                            <h4 class="mt-3">Real-Time Messaging</h4>
+                            <p>Chat with friends, join discussions, and stay connected in real time.</p>
+                        </div>
+                    </div>
+        
+                    <!-- Feature 3 -->
+                    <div class="col-sm-12 col-md-6 col-lg-3 col-xl-4">
+                        <div class="feature-box text-center p-3 card">
+                            <i class="bi bi-camera-video-fill display-4 text-danger"></i>
+                            <h4 class="mt-3">Video & Calls</h4>
+                            <p>Host video calls, live stream moments, and enjoy high-quality conversations.</p>
+                        </div>
+                    </div>
+        
+                    <!-- Feature 4 -->
+                    <div class="col-sm-12 col-md-6 col-lg-3 col-xl-4">
+                        <div class="feature-box text-center p-3 card">
+                            <i class="bi bi-shield-lock-fill display-4 text-warning"></i>
+                            <h4 class="mt-3">Privacy & Security</h4>
+                            <p>Your data and conversations are protected with top-notch security measures.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
+
+        <section class="plans container-fluid px-3 py-3" id="plans-sect">
+            <h1 class="text-center mb-4">Our Plans</h1>
+            <div class="container">
+                <div class="row justify-content-center" id="plans-container" style="gap: 15px;">
+                    
+                    <!-- Free Plan -->
+                    <div class="col-sm-12 col-md-6 col-lg-3">
+                        <div class="plan-box text-center p-4">
+                            <i class="bi bi-gift-fill display-4 text-success"></i>
+                            <h4 class="mt-3">Free Plan</h4>
+                            <p>✔ Access to basic features</p>
+                            <p>✔ Limited messaging</p>
+                            <p>✔ 2 free voice calls</p>
+                            <p>✔ 3 free video calls</p>
+                            <p>✖ No premium perks</p>
+                        </div>
+                    </div>
         
+                    <!-- Standard Plan -->
+                    <div class="col-sm-12 col-md-6 col-lg-3">
+                        <div class="plan-box text-center p-4">
+                            <i class="bi bi-star-fill display-4 text-primary"></i>
+                            <h4 class="mt-3">Standard Plan</h4>
+                            <p>✔ Unlimited messaging</p>
+                            <p>✔ Voice calls with no limits</p>
+                            <p>✔ 10 free video calls</p>
+                            <p>✔ Priority support</p>
+                            <p>✖ No exclusive content</p>
+                        </div>
+                    </div>
+        
+                    <!-- Premium Plan -->
+                    <div class="col-sm-12 col-md-6 col-lg-3">
+                        <div class="plan-box text-center p-4">
+                            <i class="bi bi-gem display-4 text-warning"></i>
+                            <h4 class="mt-3">Premium Plan</h4>
+                            <p>✔ All Standard Plan benefits</p>
+                            <p>✔ Unlimited voice & video calls</p>
+                            <p>✔ Early access to new features</p>
+                            <p>✔ Exclusive premium content</p>
+                            <p>✔ VIP support & perks</p>
+                        </div>
+                    </div>
+        
+                </div>
+            </div>
+        </section>
+        <!-- What Our Users Say Section -->
+<section id="testimonials" class="container my-5">
+    <h2 class="text-center mb-4">What Our Users Say</h2>
+    
+    <!-- Swiper Slider Container -->
+    <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+            <!-- Dummy Testimonial 1 -->
+            <div class="swiper-slide col-sm-12 .col-md-6 .col-lg-4">
+                <div class="testimonial">
+                    <p>"Connectify changed my business! Amazing service and support."</p>
+                    <h5>- Sarah Johnson</h5>
+                </div>
+            </div>
+            <!-- Dummy Testimonial 2 -->
+            <div class="swiper-slide col-sm-12 .col-md-6 .col-lg-4">
+                <div class="testimonial">
+                    <p>"Best platform for networking. Highly recommend!"</p>
+                    <h5>- Michael Lee</h5>
+                </div>
+            </div>
+            <!-- Dummy Testimonial 3 -->
+            <div class="swiper-slide col-sm-12 .col-md-6 .col-lg-4">
+                <div class="testimonial">
+                    <p>"User-friendly and efficient. Love it!"</p>
+                    <h5>- Emily Davis</h5>
+                </div>
+            </div>
+            <!-- Dummy Testimonial 4 -->
+            <div class="swiper-slide col-sm-12 .col-md-6 .col-lg-4">
+                <div class="testimonial">
+                    <p>"Great experience! The features are top-notch."</p>
+                    <h5>- John Smith</h5>
+                </div>
+            </div>
+            <!-- Dummy Testimonial 5 -->
+            <div class="swiper-slide col-sm-12 .col-md-6 .col-lg-4">
+                <div class="testimonial">
+                    <p>"Absolutely fantastic! Helped me grow my business."</p>
+                    <h5>- Olivia Martin</h5>
+                </div>
+            </div>
+            <!-- Dummy Testimonial 6 -->
+            <div class="swiper-slide col-sm-12 .col-md-6 .col-lg-4">
+                <div class="testimonial">
+                    <p>"I use it daily! It’s a game changer."</p>
+                    <h5>- David Wilson</h5>
+                </div>
+            </div>
+            <!-- Dummy Testimonial 7 -->
+            <div class="swiper-slide col-sm-12 .col-md-6 .col-lg-4">
+                <div class="testimonial">
+                    <p>"Super intuitive and easy to use. Love it!"</p>
+                    <h5>- Emma Brown</h5>
+                </div>
+            </div>
+            <!-- Dummy Testimonial 8 -->
+            <div class="swiper-slide col-sm-12 .col-md-6 .col-lg-4">
+                <div class="testimonial">
+                    <p>"A must-have tool for professionals."</p>
+                    <h5>- James Carter</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="container-fluid px-3 py-3" id="review-form-sect">
+    <h2 class="text-center mb-4">Leave a Review</h2>
+    
+<div class="container" id="reviews">
+    
+    <form id="ratingForm" class="p-4 border rounded bg-light">
+        <div class="row mb-3">
+            <div class="col-md-12 text-center">
+                <label class="form-label"><strong>Rate Us:</strong></label>
+                <div class="star-rating">
+                    <i class="fa fa-star" data-rating="1"></i>
+                    <i class="fa fa-star" data-rating="2"></i>
+                    <i class="fa fa-star" data-rating="3"></i>
+                    <i class="fa fa-star" data-rating="4"></i>
+                    <i class="fa fa-star" data-rating="5"></i>
+                </div>
+                <input type="hidden" name="rating" id="rating-value" value="0">
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label class="form-label"><strong>Your Name:</strong></label>
+                <input type="text" class="form-control" name="username" placeholder="Enter your name" required>
+            </div>
+            <div class="col-md-6">
+                <label class="form-label"><strong>Upload Image:</strong></label>
+                <input type="file" class="form-control" id="imageUpload" accept="image/*">
+                <img id="imagePreview" class="image-preview d-none">
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-12">
+                <label class="form-label"><strong>Write a Comment:</strong></label>
+                <textarea class="form-control" name="comment" rows="3" placeholder="Share your experience..." required></textarea>
+            </div>
+        </div>
+
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary">Submit Review</button>
+        </div>
+    </form>
+</div>
+</section>
     </main>
     
     

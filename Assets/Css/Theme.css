@@ -19,14 +19,26 @@
     --gradient-middle: #e10098; /* Neon Pink */
     --gradient-end: #d5006b; /* Magenta */
 }
+body{
+
+    overflow-x: hidden;
+    background: radial-gradient(circle at top left, rgba(155, 77, 202, 0.7), transparent 50%),
+    radial-gradient(circle at top right, rgba(225, 0, 152, 0.7), transparent 50%),
+    radial-gradient(circle at bottom left, rgba(213, 0, 107, 0.7), transparent 50%),
+    radial-gradient(circle at bottom right, rgba(255, 0, 128, 0.7), transparent 50%);
+background-color: #1a1a1a; /* Dark base color to enhance visibility */
+}
 header{
-    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-middle), var(--gradient-end));
     
     height: 900px !important;
 }
 .navbar{
     background-color: transparent !important;
     width: 100% !important;
+}
+#image-nav{
+    width: 210px !important;
+    height: auto !important;
 }
 #hero-sect{
     width: var(--mxw);
@@ -60,22 +72,30 @@ header{
 /* Apply radial gradient background at four corners */
 .container-about {
     position: relative;
-    background: radial-gradient(circle at top left, rgba(155, 77, 202, 0.7), transparent 50%),
-                radial-gradient(circle at top right, rgba(225, 0, 152, 0.7), transparent 50%),
-                radial-gradient(circle at bottom left, rgba(213, 0, 107, 0.7), transparent 50%),
-                radial-gradient(circle at bottom right, rgba(255, 0, 128, 0.7), transparent 50%);
-    background-color: #1a1a1a; /* Dark base color to enhance visibility */
-    padding: 50px 0 !important;
     color: white !important;
 }
-
+#image-about{
+    background-color: white !important;
+}
 /* Ensure text readability */
 .container-about h1, 
 .container-about h2, 
 .container-about p {
     color: white !important;
 }
-
+#about-btn{
+    width: 220px !important;
+    height: auto !important;
+    border-radius: 15px !important;
+    background-color: rgb(83, 58, 194) !important;
+    color: rgb(255, 255, 255) !important;
+    font-size: 20px !important;
+    font-weight: bold !important;
+    margin: 0 auto !important;
+    display: block !important;
+    margin-top: 20px !important;
+    text-align: center !important;
+}
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .container-about {
@@ -83,5 +103,406 @@ header{
     }
     .col-md-6 {
         width: 100% !important;
+    }
+}
+/* Features Section */
+#features-sect {
+    background: linear-gradient(135deg, #0a0a0a, #1a1a1a) !important;
+    color: #fff !important;
+    padding: 60px 0 !important;
+    text-align: center !important;
+}
+
+/* Feature Heading */
+#features-sect h1 {
+    font-size: 2.5rem !important;
+    font-weight: bold !important;
+    text-transform: uppercase !important;
+    letter-spacing: 2px !important;
+    background: linear-gradient(90deg, #ff00ff, #00ffff) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+}
+
+/* Feature Container */
+#feature-container {
+    display: flex !important;
+    justify-content: center !important;
+}
+
+/* Feature Box (Glassmorphism + Glow) */
+.feature-box {
+    background: rgba(255, 255, 255, 0.05) !important;
+    backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    border-radius: 15px !important;
+    padding: 20px !important;
+    margin: 10px !important;
+    text-align: center !important;
+    box-shadow: 0px 0px 15px rgba(255, 0, 255, 0.2) !important;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out !important;
+}
+
+/* Hover Effect */
+.feature-box:hover {
+    transform: translateY(-8px) !important;
+    box-shadow: 0px 0px 20px rgba(255, 0, 255, 0.5) !important;
+}
+
+/* Feature Icons */
+.feature-box i {
+    font-size: 3rem !important;
+    margin-bottom: 15px !important;
+    transition: transform 0.3s ease-in-out !important;
+}
+
+/* Hover Effect for Icons */
+.feature-box:hover i {
+    transform: scale(1.1) !important;
+}
+
+/* Feature Titles */
+.feature-box h4 {
+    font-size: 1.5rem !important;
+    font-weight: 600 !important;
+    margin-top: 10px !important;
+    color: #ff00ff !important;
+}
+
+/* Feature Text */
+.feature-box p {
+    font-size: 1rem !important;
+    color: #ccc !important;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .feature-box {
+        width: 100% !important;
+    }
+}
+/* Plans Section */
+#plans-sect {
+    background: linear-gradient(135deg, #111, #222) !important;
+    color: #fff !important;
+    padding: 60px 0 !important;
+    text-align: center !important;
+}
+
+/* Section Heading */
+#plans-sect h1 {
+    font-size: 2.5rem !important;
+    font-weight: bold !important;
+    text-transform: uppercase !important;
+    letter-spacing: 2px !important;
+    background: linear-gradient(90deg, #ff00ff, #00ffff) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+}
+
+/* Plans Container */
+#plans-container {
+    display: flex !important;
+    justify-content: center !important;
+}
+
+/* Plan Box (Glassmorphism) */
+.plan-box {
+    background: rgba(255, 255, 255, 0.08) !important;
+    backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    border-radius: 15px !important;
+    padding: 20px !important;
+    margin: 10px !important;
+    text-align: center !important;
+    box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.1) !important;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out !important;
+}
+
+/* Hover Effect */
+.plan-box:hover {
+    transform: translateY(-8px) !important;
+    box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.3) !important;
+}
+
+/* Plan Icons */
+.plan-box i {
+    font-size: 3rem !important;
+    margin-bottom: 15px !important;
+    transition: transform 0.3s ease-in-out !important;
+}
+
+/* Hover Effect for Icons */
+.plan-box:hover i {
+    transform: scale(1.1) !important;
+}
+
+/* Plan Titles */
+.plan-box h4 {
+    font-size: 1.5rem !important;
+    font-weight: 600 !important;
+    margin-top: 10px !important;
+    color: #ff00ff !important;
+}
+
+/* Plan Text */
+.plan-box p {
+    font-size: 1rem !important;
+    color: #ccc !important;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .plan-box {
+        width: 100% !important;
+    }
+}
+/* Futuristic Styling for Testimonials */
+#testimonials {
+    background: linear-gradient(135deg, #0a0a0a, #1a1a1a) !important;
+    color: #fff !important;
+    border-radius: 10px !important;
+    box-shadow: 0px 0px 20px rgba(0, 255, 255, 0.3) !important;
+}
+
+/* Section Title */
+#testimonials h2 {
+    font-family: 'Orbitron', sans-serif !important;
+    font-size: 2rem !important;
+    color: #0ff !important;
+    text-transform: uppercase !important;
+    text-shadow: 0 0 10px #0ff !important;
+    letter-spacing: 2px !important;
+}
+
+/* Swiper Wrapper */
+.swiper {
+    width: 100% !important;
+    padding: 20px 0 !important;
+}
+
+/* Individual Testimonial */
+.testimonial {
+    background: rgba(255, 255, 255, 0.1) !important; /* Glass effect */
+    backdrop-filter: blur(10px) !important;
+    border-radius: 15px !important;
+    padding: 20px !important;
+    width: 250px !important;
+    height: 150px !important;
+text-align: center !important;
+    box-shadow: 0px 0px 15px rgba(0, 255, 255, 0.2) !important;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out !important;
+}
+
+.testimonial:hover {
+    transform: scale(1.05) !important;
+    box-shadow: 0px 0px 25px rgba(0, 255, 255, 0.5) !important;
+}
+
+/* Testimonial Text */
+.testimonial p {
+    font-size: 1.2rem !important;
+    font-family: 'Poppins', sans-serif !important;
+    font-weight: 300 !important;
+    color: #ddd !important;
+    margin-bottom: 10px !important;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Testimonial Author */
+.testimonial h5 {
+    font-size: 1rem !important;
+    font-family: 'Orbitron', sans-serif !important;
+    color: #0ff !important;
+    text-shadow: 0 0 8px #0ff !important;
+}
+
+/* Swiper Pagination Dots */
+.swiper-pagination-bullet {
+    background: rgba(0, 255, 255, 0.5) !important;
+    width: 10px !important;
+    height: 10px !important;
+    opacity: 0.7 !important;
+    transition: opacity 0.3s ease-in-out !important;
+}
+
+.swiper-pagination-bullet-active {
+    background: #0ff !important;
+    opacity: 1 !important;
+    box-shadow: 0 0 10px #0ff !important;
+}
+
+/* Swiper Navigation Buttons */
+.swiper-button-next, .swiper-button-prev {
+    color: #0ff !important;
+    font-size: 1.5rem !important;
+    transition: color 0.3s ease-in-out !important;
+}
+
+.swiper-button-next:hover, .swiper-button-prev:hover {
+    color: #fff !important;
+    text-shadow: 0 0 10px #0ff !important;
+}
+/* --- Futuristic Review Form --- */
+
+#review-form-sect {
+    background: linear-gradient(135deg, #0d1b2a, #1b263b) !important;
+    color: #ffffff !important;
+    padding: 60px 20px !important;
+    border-radius: 12px !important;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.3) !important;
+}
+
+/* Form Container */
+#ratingForm {
+    background: rgba(255, 255, 255, 0.1) !important;
+    backdrop-filter: blur(10px) !important;
+    padding: 30px !important;
+    border-radius: 15px !important;
+    box-shadow: 0px 4px 15px rgba(0, 255, 255, 0.2) !important;
+    border: 1px solid rgba(0, 255, 255, 0.3) !important;
+    animation: fadeIn 1s ease-in-out !important;
+}
+
+/* Headings */
+h2 {
+    font-family: "Poppins", sans-serif !important;
+    font-size: 2rem !important;
+    font-weight: 600 !important;
+    color: #00ffff !important;
+    text-shadow: 0 0 5px rgba(0, 255, 255, 0.8) !important;
+    animation: neonGlow 1.5s infinite alternate !important;
+}
+
+/* Inputs & Textareas */
+.form-control {
+    background: rgba(0, 0, 0, 0.5) !important;
+    color: #ffffff !important;
+    border: 1px solid rgba(0, 255, 255, 0.5) !important;
+    border-radius: 8px !important;
+    padding: 12px !important;
+    font-size: 1rem !important;
+    transition: all 0.4s ease-in-out !important;
+}
+
+.form-control:focus {
+    border-color: #00ffff !important;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.6) !important;
+    transform: scale(1.02) !important;
+}
+
+/* Placeholder Animation */
+.form-control::placeholder {
+    color: #00eaff !important;
+    font-style: italic !important;
+    opacity: 0.7 !important;
+    animation: placeholderFade 2s infinite alternate !important;
+}
+
+/* Labels */
+label {
+    font-weight: 500 !important;
+    color: #00eaff !important;
+}
+
+/* Star Rating */
+.star-rating {
+    display: flex !important;
+    justify-content: center !important;
+    gap: 10px !important;
+    font-size: 2rem !important;
+    cursor: pointer !important;
+    animation: fadeIn 1s ease-in-out !important;
+}
+
+.star-rating .fa {
+    color: rgba(255, 255, 255, 0.3) !important;
+    transition: color 0.3s ease-in-out, transform 0.3s ease-in-out !important;
+}
+
+.star-rating .fa:hover,
+.star-rating .fa.active {
+    color: #00ffff !important;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.8) !important;
+    transform: scale(1.1) !important;
+}
+
+/* Image Preview */
+.image-preview {
+    width: 100px !important;
+    height: 100px !important;
+    border-radius: 50% !important;
+    object-fit: cover !important;
+    border: 2px solid #00ffff !important;
+    margin-top: 10px !important;
+    animation: fadeIn 1.5s ease-in-out !important;
+}
+
+/* Submit Button */
+.btn-primary {
+    background: #00ffff !important;
+    border: none !important;
+    padding: 12px 20px !important;
+    font-size: 1rem !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    color: #000 !important;
+    border-radius: 8px !important;
+    transition: all 0.3s ease-in-out !important;
+    animation: fadeIn 1s ease-in-out !important;
+}
+
+.btn-primary:hover {
+    background: #00e5ff !important;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.8) !important;
+    transform: scale(1.05) !important;
+}
+
+/* === Animations === */
+
+/* Placeholder Fade */
+@keyframes placeholderFade {
+    0% {
+        color: #00eaff !important;
+        opacity: 0.6 !important;
+    }
+    100% {
+        color: #00ffff !important;
+        opacity: 1 !important;
+    }
+}
+
+/* Neon Glow */
+@keyframes neonGlow {
+    0% {
+        text-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
+    }
+    100% {
+        text-shadow: 0 0 15px rgba(0, 255, 255, 0.9);
+    }
+}
+
+/* Fade In */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    h2 {
+        font-size: 1.8rem !important;
+    }
+    .star-rating {
+        font-size: 1.5rem !important;
+    }
+    .btn-primary {
+        font-size: 0.9rem !important;
     }
 }
