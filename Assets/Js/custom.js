@@ -323,24 +323,43 @@ $(document).ready(function() {
 });
 
 
-var $star_rating = $('.star-rating .fa');
+$(document).ready(function () {
+  // Star Rating Logic
+  $(".star-rating .fa").on("click", function () {
+      let rating = $(this).data("rating");
+      $("#rating-value").val(rating);
 
-var SetRatingStar = function() {
-  return $star_rating.each(function() {
-    if (parseInt($star_rating.siblings('input.rating-value').val()) >= parseInt($(this).data('rating'))) {
-      return $(this).removeClass('fa-star-o').addClass('fa-star');
-    } else {
-      return $(this).removeClass('fa-star').addClass('fa-star-o');
-    }
+      $(".star-rating .fa").removeClass("active");
+      for (let i = 1; i <= rating; i++) {
+          $(".star-rating .fa:nth-child(" + i + ")").addClass("active");
+      }
   });
-};
 
-$star_rating.on('click', function() {
-  $star_rating.siblings('input.rating-value').val($(this).data('rating'));
-  return SetRatingStar();
+  // Image Preview
+  $("#imageUpload").on("change", function (event) {
+      let reader = new FileReader();
+      reader.onload = function () {
+          $("#imagePreview").attr("src", reader.result).removeClass("d-none");
+      };
+      reader.readAsDataURL(event.target.files[0]);
+  });
+
+  // Form Submission
+  $("#ratingForm").on("submit", function (event) {
+      event.preventDefault();
+      alert("Thank you for your review!");
+      $(this)[0].reset();
+      $(".star-rating .fa").removeClass("active");
+      $("#imagePreview").addClass("d-none");
+  });
 });
 
-SetRatingStar();
-$(document).ready(function() {
+document.getElementById("toggleButton").addEventListener("click", function () {
+  document.querySelector(".sign-in").classList.remove("active");
+  document.querySelector(".sign-up").classList.add("active");
+});
 
+document.getElementById("toggleBack").addEventListener("click", function () {
+  document.querySelector(".sign-up").classList.remove("active");
+  document.querySelector(".sign-in").classList.add("active");
 });

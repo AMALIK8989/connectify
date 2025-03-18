@@ -21,6 +21,12 @@
 }
 body{
 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
     overflow-x: hidden;
     background: radial-gradient(circle at top left, rgba(155, 77, 202, 0.7), transparent 50%),
     radial-gradient(circle at top right, rgba(225, 0, 152, 0.7), transparent 50%),
@@ -28,6 +34,8 @@ body{
     radial-gradient(circle at bottom right, rgba(255, 0, 128, 0.7), transparent 50%);
 background-color: #1a1a1a; /* Dark base color to enhance visibility */
 }
+
+
 header{
     
     height: 900px !important;
@@ -504,5 +512,366 @@ label {
     }
     .btn-primary {
         font-size: 0.9rem !important;
+    }
+}
+/* === Futuristic Footer === */
+.futuristic-footer {
+    background: rgba(0, 0, 0, 0.9) !important;
+    backdrop-filter: blur(10px) !important;
+    padding: 30px 0 !important;
+    text-align: center !important;
+    border-top: 2px solid rgba(0, 255, 255, 0.3) !important;
+    box-shadow: 0 -5px 15px rgba(0, 255, 255, 0.2) !important;
+}
+
+/* === Logo Section === */
+.footer-logo img {
+    width: 120px !important;
+    background: rgba(255, 255, 255, 0.473);
+    filter: drop-shadow(0 0 10px rgba(0, 255, 255, 0.8)) !important;
+    transition: transform 0.3s ease-in-out !important;
+}
+
+.footer-logo img:hover {
+    transform: scale(1.1) !important;
+}
+
+/* === Contact Info === */
+.footer-contact p {
+    color: rgba(255, 255, 255, 0.7) !important;
+    font-size: 1rem !important;
+    margin: 5px 0 !important;
+}
+
+.footer-contact i {
+    color: #00ffff !important;
+    margin-right: 8px !important;
+}
+
+/* === Social Media Icons === */
+.social-icons a {
+    color: #00ffff !important;
+    font-size: 1.5rem !important;
+    margin: 0 10px !important;
+    transition: transform 0.3s ease-in-out, text-shadow 0.3s ease-in-out !important;
+}
+
+.social-icons a:hover {
+    transform: scale(1.2) !important;
+    text-shadow: 0 0 15px rgba(0, 255, 255, 0.8) !important;
+}
+
+/* === Responsive Design === */
+@media (max-width: 768px) {
+    .footer-logo img {
+        width: 100px !important;
+    }
+    .social-icons a {
+        font-size: 1.2rem !important;
+    }
+}
+/* 📌 Main Full-Screen Centering */
+main {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    padding: 0;
+}
+
+.form-container {
+    position: relative;
+    width: 850px;
+    height: 550px;
+    border-radius: 20px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 20px rgba(0, 238, 255, 0.6);
+    display: flex;
+    transition: all 0.5s ease-in-out;
+}
+
+/* 🚀 Side Panel */
+.side-panel {
+    width: 40%;
+    background: linear-gradient(135deg, #00eaff, #0077ff);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 30px;
+    transition: 0.5s;
+}
+
+.side-panel h2 {
+    font-size: 26px;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.side-panel p {
+    color: white;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.side-panel button {
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 8px;
+    border: 2px solid white;
+    color: white;
+    background: transparent;
+    transition: 0.3s ease;
+}
+
+.side-panel button:hover {
+    background: white;
+    color: #0077ff;
+}
+
+.forms {
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition: transform 0.5s ease-in-out;
+    padding: 20px;
+}
+
+/* 📝 Centering the Form Box */
+.form-box {
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers inputs horizontally */
+    gap: 10px; /* Adds space between inputs */
+}
+
+/* 🔤 Centering Input Fields */
+.form-control {
+    width: 100%; /* Ensures full width */
+    max-width: 350px; /* Limits width */
+    padding: 14px;
+    border: none;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    margin-bottom: 10px !important;
+    font-size: 16px;
+    outline: none;
+    transition: all 0.3s ease-in-out;
+    text-align: center; /* Centers text inside inputs */
+}
+
+.form-control::placeholder {
+    text-align: center; /* Centers placeholder text */
+}
+
+/* 🎛 Buttons */
+.btn {
+    width: 100%;
+    padding: 12px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 10px !important;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    z-index: 3;  /* Ensures it stays above background */
+}
+
+/* 💠 Social Login Buttons */
+.social-login {
+    margin-top: 10px;
+    position: relative;
+    z-index: 3;
+}
+
+.google-btn, .hotmail-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    background: rgba(255, 255, 255, 0.3); /* Semi-transparent */
+    color: white;
+    border-radius: 8px;
+    transition: 0.3s ease-in-out;
+    position: relative;
+    z-index: 3;
+}
+.signup-wrapper{
+    display: none !important;
+}
+/* ✨ Background Image Effect */
+.signin-wrapper, .signup-wrapper {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: brightness(50%) ; /* Keeps blur but allows visibility */
+    z-index: 1;  /* Ensures background stays behind */
+}
+
+/* 🌟 Ensuring Form Container is Above Background */
+.form-container {
+    position: relative;
+    width: 800px;
+    height: 500px;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0, 238, 255, 0.5);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    transition: 0.5s;
+    z-index: 2;  /* Ensures it stays above the background */
+}
+
+.google-btn:hover, .hotmail-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.google-btn img, .hotmail-btn img {
+    width: 24px;
+    margin-right: 10px;
+}
+
+/* ✨ Toggle Forms */
+.toggle-signin {
+    margin-top: 20px;
+}
+
+.toggle-signin button {
+    border: none;
+    background: transparent;
+    color: #00eaff;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.toggle-signin button:hover {
+    text-decoration: underline;
+}
+
+
+/* 📲 Responsive Fixes */
+@media (max-width: 992px) { /* Tablets */
+    .form-container {
+        width: 90%;
+        height: auto;
+        flex-direction: column;
+    }
+
+    .side-panel {
+        width: 100%;
+        height: 200px;
+        padding: 20px;
+    }
+
+    .forms {
+        width: 100%;
+        padding: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .form-box {
+        width: 100%;
+        max-width: 400px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .form-control {
+        width: 100%;
+        max-width: 350px; /* Ensures form input doesn't stretch too much */
+        padding: 14px;
+        border-radius: 10px;
+        font-size: 16px;
+        text-align: center;
+    }
+}
+
+@media (max-width: 768px) { /* Small tablets */
+    .form-container {
+        width: 95%;
+    }
+
+    .side-panel {
+        height: 180px;
+    }
+
+    .forms {
+        padding: 20px;
+    }
+
+    .form-control {
+        font-size: 14px;
+        padding: 12px;
+        max-width: 300px; /* Ensures input isn't too wide */
+    }
+}
+
+@media (max-width: 576px) { /* Mobile phones */
+    .form-container {
+        width: 100%;
+        height: auto;
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    .side-panel {
+        height: 160px;
+        text-align: center;
+    }
+
+    .form-box {
+        width: 100%;
+        max-width: 320px; /* Ensures proper width on mobile */
+    }
+
+    .form-control {
+        font-size: 14px;
+        padding: 12px;
+        max-width: 280px; /* Better fit for mobile */
+    }
+
+    .btn {
+        font-size: 16px;
+        padding: 10px;
+        max-width: 280px;
+    }
+}
+
+@media (max-width: 400px) { /* Extra small screens */
+    .side-panel h2 {
+        font-size: 18px;
+    }
+
+    .form-box {
+        width: 100%;
+        max-width: 280px;
+    }
+
+    .form-control {
+        font-size: 14px;
+        max-width: 250px; /* Adjust for tiny screens */
     }
 }
