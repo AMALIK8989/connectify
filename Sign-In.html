@@ -1,114 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modern Sign In & Sign Up</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Connectify |  Where Conversations Come to Life! </title>
-    <link rel="stylesheet" href="./Assets/Css/all.css">
-    <!-- <link rel="stylesheet" href="./Assets/Css/animate.css"> -->
-    <link rel="stylesheet" href="./Assets/Css/bootstrap.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
-    <script src="./Assets/Js/all.js"></script>
-    <link rel="stylesheet" href="./Assets/Css/coreui.min.css">
-    <script src="./Assets/Js/coreui.min.js"></script>
-    <link
-  rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
-/>
-
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
-    <script src="./Assets/Js/bootstrap.min.js"></script>
-    <script
-    src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"
-    integrity="sha512-Eak/29OTpb36LLo2r47IpVzPBLXnAMPAVypbSZiZ4Qkf8p/7S/XRG5xp7OKWPPYfJT6metI+IORkR5G8F900+g=="
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer"
-  ></script>
- <!-- Include CSS for Owl Carousel -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
-
-<!-- Include jQuery first -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
-<!-- Include Owl Carousel JS -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-
-
-
-    <link
-     rel="stylesheet"
-     href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-   />
-   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script> </body>
-   <link
-   rel="stylesheet"
-   href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
- />
-<script src="./Assets/Js/custom.js"></script>
-<link rel="stylesheet" href="./Assets/Css/Theme.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sign In</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #f9f9f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .signin-container {
+      background: #fff;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 420px;
+    }
+    .social-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      font-weight: 500;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 10px;
+      background-color: #fff;
+      transition: background-color 0.3s;
+    }
+    .social-btn:hover {
+      background-color: #f1f1f1;
+    }
+    .divider {
+      display: flex;
+      align-items: center;
+      text-align: center;
+      margin: 20px 0;
+    }
+    .divider::before,
+    .divider::after {
+      content: '';
+      flex: 1;
+      border-bottom: 1px solid #ccc;
+    }
+    .divider::before {
+      margin-right: 10px;
+    }
+    .divider::after {
+      margin-left: 10px;
+    }
+  </style>
 </head>
 <body>
-        <main>
-        <section class="container-fluid d-flex justify-content-center align-items-center " id="form-section">
-            <div class="form-container">
-                <!-- Left Side Panel -->
-                <div class="side-panel">
-                    <h2>Welcome Back!</h2>
-                    <p>Join us and start your journey.</p>
-                    <button id="toggleButton" class="btn btn-outline-light">Register</button>
-                </div>
-        
-                <!-- Right Side: Forms -->
-                <div class="forms">
-                    <div class="signin-wrapper" style="background-image: url(./Assets/Images/stefan-stefancik-QXevDflbl8A-unsplash.jpg); background-size:100% 100; background-repeat: no-repeat;">
-                    <div class="form-box sign-in active" > 
-                        <h2 class="text-center mb-4 text-white">Sign In</h2>
-                        <div class="social-login">
-                            <button class="btn google-btn"><img src="./Assets/Icons/Google.png" alt=""> Log In With Google </button>
-                            <button class="btn hotmail-btn"><img src="./Assets/Icons/Hotmail.png" alt=""> Log In with Hotmail</button>
-                        </div>
-                        <form class="sign-in-form">
-                            <input type="email" class="form-control" placeholder="Email" required>
-                            <input type="password" class="form-control" placeholder="Password" required>
-                            <button class="btn btn-primary w-100">Sign In</button>
-                            <p class="text-center mt-2"><a href="#">Forgot Password?</a></p>
-                        </form>
-                    </div>
-                </div>
-                   <div class="signup-wrapper" style="background-image: url(./Assets/Images/vicky-hladynets-C8Ta0gwPbQg-unsplash.jpg); background-size:100% 100; background-repeat: no-repeat;">
-                    <div class="form-box sign-up">
-                        <h2 class="text-center mb-4 text-white">Register</h2>
-                        <div class="social-login">
-                            <button class="btn google-btn"><img src="./Assets/Icons/Google.png" alt=""> Sign Up With Google </button>
-                            <button class="btn hotmail-btn"><img src="./Assets/Icons/Hotmail.png" alt=""> Sign up with Hotmail</button>
-                        </div>
-                        <form class="sign-up-form">
-                            <input type="text" class="form-control" placeholder="Full Name" required>
-                            <input type="email" class="form-control" placeholder="Email" required>
-                            <input type="email" class="form-control" placeholder="retype Email" required>
-                            <input type="password" class="form-control" placeholder="Password" required>
-                            <input type="password" class="form-control"placeholder="retype password" required>
-                            <button class="btn btn-primary w-100">Register</button>
-                        </form>
-                        <div class="toggle-signin">
-                            <p>Already have an account?</p>
-                            <button id="toggleBack" class="btn btn-outline-light">Sign In</button>
-                        </div>
-                    </div>
-                </div>
-                </div>
-            </div>
-        </section>
-        
-        
-</main>
 
+<div class="signin-container">
+  <h3 class="text-center mb-4">Sign in</h3>
 
+  <!-- Google Sign-In -->
+  <div class="mb-3">
+    <a href="#" class="social-btn text-dark">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="Google" width="20" height="20">
+      Sign in with Google
+    </a>
+  </div>
+
+  <!-- Hotmail Sign-In -->
+  <div class="mb-3">
+    <a href="#" class="social-btn text-dark">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/3/3e/Microsoft_Outlook_2013_logo.svg" alt="Hotmail" width="20" height="20">
+      Sign in with Hotmail
+    </a>
+  </div>
+
+  <div class="divider">or</div>
+
+  <!-- Email and Password -->
+  <form>
+    <div class="mb-3">
+      <label for="email" class="form-label">Email</label>
+      <input type="email" class="form-control" id="email" placeholder="you@example.com" required>
+    </div>
+    <div class="mb-3">
+      <label for="password" class="form-label">Password</label>
+      <input type="password" class="form-control" id="password" placeholder="Enter password" required>
+    </div>
+    <button type="submit" class="btn btn-primary w-100">Sign in</button>
+  </form>
+
+  <div class="text-center mt-3">
+    <a href="#" class="text-decoration-none">Forgot password?</a>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
