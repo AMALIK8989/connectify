@@ -4,81 +4,88 @@
   <meta charset="UTF-8">
   <title>Multi-Step Registration</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
   <style>
     .step { display: none; }
     .step.active { display: block; }
+    .progress-steps {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+    .progress-step {
+      text-align: center;
+      flex: 1;
+      color: #bbb;
+    }
+    .progress-step.active {
+      color: #0d6efd;
+    }
+    .progress-step i {
+      font-size: 1.8rem;
+    }
+    .form-check-label {
+      margin-left: 8px;
+    }
   </style>
 </head>
 <body class="bg-light">
 
 <div class="container mt-5">
-  <div class="card shadow">
+  <div class="card shadow-lg animate__animated animate__fadeIn">
     <div class="card-header bg-primary text-white text-center">
-      <h3>Register Your Account</h3>
+      <h3><i class="fas fa-user-plus me-2"></i>Register Your Account</h3>
     </div>
     <div class="card-body">
+      <!-- Progress Indicator -->
+      <div class="progress-steps mb-4">
+        <div class="progress-step step-indicator active"><i class="fas fa-user"></i><br>Basic</div>
+        <div class="progress-step step-indicator"><i class="fas fa-calendar-day"></i><br>Age</div>
+        <div class="progress-step step-indicator"><i class="fas fa-lock"></i><br>Security</div>
+        <div class="progress-step step-indicator"><i class="fas fa-eye"></i><br>Content</div>
+      </div>
+
       <form id="regForm">
-        
-        <!-- Step 1 -->
-        <div class="step active">
-          <div class="mb-3">
-            <label>Name</label>
-            <input type="text" class="form-control" required>
-          </div>
-          <div class="mb-3">
-            <label>Username</label>
-            <input type="text" class="form-control" required>
-          </div>
-          <div class="mb-3">
-            <label>Email</label>
-            <input type="email" class="form-control" required>
-          </div>
-          <div class="mb-3">
-            <label>Retype Email</label>
-            <input type="email" class="form-control" required>
-          </div>
+
+        <!-- Step 1: Basic Info -->
+        <div class="step active animate__animated animate__fadeIn">
+          <div class="mb-3"><label>Name</label><input type="text" class="form-control" required></div>
+          <div class="mb-3"><label>Username</label><input type="text" class="form-control" required></div>
+          <div class="mb-3"><label>Email</label><input type="email" class="form-control" required></div>
+          <div class="mb-3"><label>Retype Email</label><input type="email" class="form-control" required></div>
           <button type="button" class="btn btn-primary next">Next</button>
         </div>
 
-        <!-- Step 2 -->
-        <div class="step">
-          <div class="mb-3">
-            <label>Date of Birth</label>
-            <input type="date" class="form-control" required>
-          </div>
-          <div class="mb-3">
-            <label>Age</label>
-            <input type="number" class="form-control" required>
-          </div>
+        <!-- Step 2: Age Info -->
+        <div class="step animate__animated animate__fadeIn">
+          <div class="mb-3"><label>Date of Birth</label><input type="date" class="form-control" id="dob" required></div>
+          <div class="mb-3"><label>Age</label><input type="number" class="form-control" id="age" required></div>
           <button type="button" class="btn btn-secondary prev">Back</button>
           <button type="button" class="btn btn-primary next">Next</button>
         </div>
 
-        <!-- Step 3 -->
-        <div class="step">
-          <div class="mb-3">
-            <label>Password</label>
-            <input type="password" class="form-control" required>
-          </div>
-          <div class="mb-3">
-            <label>Retype Password</label>
-            <input type="password" class="form-control" required>
-          </div>
+        <!-- Step 3: Security -->
+        <div class="step animate__animated animate__fadeIn">
+          <div class="mb-3"><label>Password</label><input type="password" class="form-control" required></div>
+          <div class="mb-3"><label>Retype Password</label><input type="password" class="form-control" required></div>
           <button type="button" class="btn btn-secondary prev">Back</button>
           <button type="button" class="btn btn-primary next">Next</button>
         </div>
 
-        <!-- Step 4 -->
-        <div class="step">
+        <!-- Step 4: Content Type -->
+        <div class="step animate__animated animate__fadeIn">
           <label class="form-label">Content Type</label>
           <div class="form-check">
             <input class="form-check-input" type="radio" name="contentType" id="sfw" value="SFW" required>
-            <label class="form-check-label" for="sfw">SFW</label>
+            <label class="form-check-label text-success" for="sfw"><i class="fas fa-leaf"></i> SFW</label>
           </div>
           <div class="form-check">
             <input class="form-check-input" type="radio" name="contentType" id="nsfw" value="NSFW" required>
-            <label class="form-check-label" for="nsfw">NSFW</label>
+            <label class="form-check-label text-danger" for="nsfw"><i class="fas fa-fire"></i> NSFW</label>
           </div>
+          <div class="form-text text-danger d-none" id="ageWarning">🔞 You must be 18 or older to select NSFW content.</div>
           <button type="button" class="btn btn-secondary prev">Back</button>
           <button type="submit" class="btn btn-success">Submit</button>
         </div>
@@ -90,17 +97,29 @@
 
 <script>
   const steps = document.querySelectorAll('.step');
+  const indicators = document.querySelectorAll('.step-indicator');
   let currentStep = 0;
 
   function showStep(index) {
     steps.forEach((step, i) => {
-      step.classList.remove('active');
-      if (i === index) step.classList.add('active');
+      step.classList.remove('active', 'animate__fadeIn');
+      indicators[i].classList.remove('active');
+      if (i === index) {
+        step.classList.add('active', 'animate__fadeIn');
+        indicators[i].classList.add('active');
+      }
     });
   }
 
   document.querySelectorAll('.next').forEach(btn => {
     btn.addEventListener('click', () => {
+      if (currentStep === 1) {
+        const age = parseInt(document.getElementById('age').value);
+        if (isNaN(age) || age < 0) {
+          alert("Please enter a valid age.");
+          return;
+        }
+      }
       if (currentStep < steps.length - 1) {
         currentStep++;
         showStep(currentStep);
@@ -117,10 +136,22 @@
     });
   });
 
+  // NSFW restriction
+  document.getElementById('nsfw').addEventListener('change', () => {
+    const age = parseInt(document.getElementById('age').value);
+    const warning = document.getElementById('ageWarning');
+    if (age < 18) {
+      warning.classList.remove('d-none');
+      document.getElementById('nsfw').checked = false;
+    } else {
+      warning.classList.add('d-none');
+    }
+  });
+
   document.getElementById('regForm').addEventListener('submit', function(e) {
     e.preventDefault();
-    alert('Form Submitted!');
-    // Here you can add AJAX or fetch request to send form data to server
+    alert('🎉 Form Submitted Successfully!');
+    // Add AJAX/Fetch call to handle form data here
   });
 </script>
 
