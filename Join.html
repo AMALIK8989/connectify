@@ -381,37 +381,44 @@ input.form-control:focus {
     </div>
   </div>
 </div>
-  <script>
+<script>
   document.addEventListener("DOMContentLoaded", () => {
-    const steps = document.querySelectorAll(".custom-step");
-    const nextBtns = document.querySelectorAll(".btn-next");
-    const prevBtns = document.querySelectorAll(".btn-prev");
-    const nsfwRadio = document.querySelector('input[value="NSFW"]');
-    const ageInput = document.getElementById("age");
-    const ageWarning = document.getElementById("custom-age-warning");
-    const dobInput = document.getElementById("dob");
+    const steps = [
+      document.getElementById('step-1'),
+      document.getElementById('step-2'),
+      document.getElementById('step-3'),
+      document.getElementById('step-4')
+    ];
+
+    const nextBtns = document.querySelectorAll(".next");
+    const prevBtns = document.querySelectorAll(".prev");
+    const progressSteps = document.querySelectorAll(".progress-step");
+    const nsfwRadio = document.getElementById('nsfw');
+    const ageInput = document.getElementById('age');
+    const ageWarning = document.getElementById('ageWarning');
+    const dobInput = document.getElementById('dob');
 
     let currentStep = 0;
 
-    // Show only one step at a time
     function showStep(index) {
       steps.forEach((step, i) => {
-        step.style.display = i === index ? "block" : "none";
-        step.classList.toggle("animate__fadeIn", i === index);
-        step.classList.toggle("active", i === index);
+        step.style.display = i === index ? 'block' : 'none';
+        step.classList.toggle('active', i === index);
+        step.classList.toggle('animate__fadeIn', i === index);
+        if (progressSteps[i]) {
+          progressSteps[i].classList.toggle('active', i <= index);
+        }
       });
     }
 
-    // Initialize
     showStep(currentStep);
 
-    // Handle next buttons
     nextBtns.forEach((btn) => {
       btn.addEventListener("click", () => {
         if (currentStep === 1) {
           const age = parseInt(ageInput.value);
-          if (isNaN(age) || age <= 0) {
-            alert("🚨 Please enter a valid age.");
+          if (isNaN(age) || age < 0) {
+            alert("Please enter a valid age.");
             return;
           }
         }
@@ -422,7 +429,6 @@ input.form-control:focus {
       });
     });
 
-    // Handle previous buttons
     prevBtns.forEach((btn) => {
       btn.addEventListener("click", () => {
         if (currentStep > 0) {
@@ -432,49 +438,47 @@ input.form-control:focus {
       });
     });
 
-    // Auto-calculate age from DOB
-    dobInput.addEventListener("change", () => {
+    // Auto age calculator
+    dobInput.addEventListener('change', () => {
       const dob = new Date(dobInput.value);
       const today = new Date();
       let age = today.getFullYear() - dob.getFullYear();
-      const monthDiff = today.getMonth() - dob.getMonth();
-      if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < dob.getDate())) {
+      const m = today.getMonth() - dob.getMonth();
+      if (m < 0 || (m === 0 && today.getDate() < dob.getDate())) {
         age--;
       }
       ageInput.value = age;
 
-      // Restrict NSFW content based on age
+      // Enforce NSFW rules
       if (age < 18) {
         nsfwRadio.disabled = true;
         nsfwRadio.checked = false;
-        ageWarning.style.display = "block";
+        ageWarning.classList.remove('d-none');
       } else {
         nsfwRadio.disabled = false;
-        ageWarning.style.display = "none";
+        ageWarning.classList.add('d-none');
       }
     });
 
-    // NSFW radio manual check
-    if (nsfwRadio) {
-      nsfwRadio.addEventListener("change", () => {
-        const age = parseInt(ageInput.value);
-        if (age < 18) {
-          ageWarning.style.display = "block";
-          nsfwRadio.checked = false;
-        } else {
-          ageWarning.style.display = "none";
-        }
-      });
-    }
+    nsfwRadio.addEventListener('change', () => {
+      const age = parseInt(ageInput.value);
+      if (age < 18) {
+        ageWarning.classList.remove('d-none');
+        nsfwRadio.checked = false;
+      } else {
+        ageWarning.classList.add('d-none');
+      }
+    });
 
-    // Final form submit
-    document.getElementById("regForm").addEventListener("submit", (e) => {
+    // Handle form submission
+    document.getElementById("regForm").addEventListener("submit", function (e) {
       e.preventDefault();
-      alert("✨ Registration complete. Welcome aboard!");
-      // You can add fetch/AJAX call here to handle real backend logic
+      alert("🎉 Form Submitted Successfully!");
+      // Here, add any AJAX logic you want.
     });
   });
 </script>
+
 
 </section>
 </main>
