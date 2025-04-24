@@ -2,14 +2,6 @@
 // Database connection parameters
 include './Conn.php'
 
-// Create database connection
-$conn = new mysqli($host, $username, $password, $dbname);
-
-// Check for connection errors
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
 // Set response header for JSON response
 header('Content-Type: application/json');
 
