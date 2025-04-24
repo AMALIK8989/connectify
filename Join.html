@@ -344,26 +344,26 @@ input.form-control:focus {
 
       <form id="regForm" action=>
 
-        <div class="step active animate__animated animate__fadeIn" id="step-1">
-          <div class="mb-3"><label>Name</label><input type="text" class="form-control" required></div>
-          <div class="mb-3"><label>Username</label><input type="text" class="form-control" required></div>
-          <div class="mb-3"><label>Email</label><input type="email" class="form-control" required></div>
-          <div class="mb-3"><label>Retype Email</label><input type="email" class="form-control" required></div>
+          <div class="step active animate__animated animate__fadeIn" id="step-1">
+          <div class="mb-3"><label>Name</label><input type="text" name="fullname" class="form-control" required></div>
+          <div class="mb-3"><label>Username</label><input type="text" name="username" class="form-control" required></div>
+          <div class="mb-3"><label>Email</label><input type="email" name="email" class="form-control" required></div>
+          <div class="mb-3"><label>Retype Email</label><input type="email" name="email1" class="form-control" required></div>
           <button type="button" class="btn btn-primary next">Next</button>
         </div>
 
   
         <div class="step animate__animated animate__fadeIn" id="step-2">
-          <div class="mb-3"><label>Date of Birth</label><input type="date" class="form-control" id="dob" required></div>
-          <div class="mb-3"><label>Age</label><input type="number" class="form-control" id="age" required></div>
+          <div class="mb-3"><label>Date of Birth</label><input type="date" name="dob" class="form-control" id="dob" required></div>
+          <div class="mb-3"><label>Age</label><input type="number"  name="age" class="form-control" id="age" required></div>
           <button type="button" class="btn btn-secondary prev">Back</button>
           <button type="button" class="btn btn-primary next">Next</button>
         </div>
 
         <!-- Step 3: Security -->
         <div class="step animate__animated animate__fadeIn" id="step-3">
-          <div class="mb-3"><label>Password</label><input type="password" class="form-control" required></div>
-          <div class="mb-3"><label>Retype Password</label><input type="password" class="form-control" required></div>
+          <div class="mb-3"><label>Password</label><input type="password" name="password" class="form-control" required></div>
+          <div class="mb-3"><label>Retype Password</label><input type="password" name="password1" class="form-control" required></div>
           <button type="button" class="btn btn-secondary prev">Back</button>
           <button type="button" class="btn btn-primary next">Next</button>
         </div>
@@ -373,16 +373,17 @@ input.form-control:focus {
           <label class="form-label">Content Type</label>
           <div class="form-check">
             <input class="form-check-input" type="radio" name="contentType" id="sfw" value="SFW" required>
-            <label class="form-check-label text-success" for="sfw"><i class="fas fa-leaf"></i> SFW</label>
+            <label class="form-check-label text-success" for="sfw" value="sfw" ><i class="fas fa-leaf"></i> SFW</label>
           </div>
           <div class="form-check">
             <input class="form-check-input" type="radio" name="contentType" id="nsfw" value="NSFW" required>
-            <label class="form-check-label text-danger" for="nsfw"><i class="fas fa-fire"></i> NSFW</label>
+            <label class="form-check-label text-danger" for="nsfw" value="nsfw"><i class="fas fa-fire"></i> NSFW</label>
           </div>
           <div class="form-text text-danger d-none" id="ageWarning">🔞 You must be 18 or older to select NSFW content.</div>
           <button type="button" class="btn btn-secondary prev">Back</button>
           <button type="submit" class="btn btn-success">Submit</button>
         </div>
+
 
       </form>
     </div>
