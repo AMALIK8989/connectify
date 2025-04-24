@@ -161,6 +161,7 @@
   </style>
 </head>
 <body>
+  
  <main>
 <section class="container-fluid px-2 py-2" id="form-holder">
 <div class="container mt-5" id="form-container">
@@ -198,7 +199,7 @@
         </div>
 
   
-        <div class="step animate__animated animate__fadeIn" id="step-1">
+        <div class="step animate__animated animate__fadeIn" id="step-2">
           <div class="mb-3"><label>Date of Birth</label><input type="date" class="form-control" id="dob" required></div>
           <div class="mb-3"><label>Age</label><input type="number" class="form-control" id="age" required></div>
           <button type="button" class="btn btn-secondary prev">Back</button>
@@ -206,7 +207,7 @@
         </div>
 
         <!-- Step 3: Security -->
-        <div class="step animate__animated animate__fadeIn" id="step-1">
+        <div class="step animate__animated animate__fadeIn" id="step-3">
           <div class="mb-3"><label>Password</label><input type="password" class="form-control" required></div>
           <div class="mb-3"><label>Retype Password</label><input type="password" class="form-control" required></div>
           <button type="button" class="btn btn-secondary prev">Back</button>
@@ -214,7 +215,7 @@
         </div>
 
         <!-- Step 4: Content Type -->
-        <div class="step animate__animated animate__fadeIn" id="step-1">
+        <div class="step animate__animated animate__fadeIn" id="step-4">
           <label class="form-label">Content Type</label>
           <div class="form-check">
             <input class="form-check-input" type="radio" name="contentType" id="sfw" value="SFW" required>
@@ -236,18 +237,26 @@
 </section>
 </main>
 <script>
-   document.addEventListener("DOMContentLoaded", () => {
+  document.addEventListener("DOMContentLoaded", () => {
     const steps = document.querySelectorAll(".step");
     const nextBtns = document.querySelectorAll(".next");
     const prevBtns = document.querySelectorAll(".prev");
     const progressSteps = document.querySelectorAll(".progress-step");
+    const nsfwRadio = document.getElementById('nsfw');
+    const ageInput = document.getElementById('age');
+    const ageWarning = document.getElementById('ageWarning');
 
     let currentStep = 0;
 
+    // Show only the current step and update progress
     function showStep(index) {
       steps.forEach((step, i) => {
-        step.style.display = i === index ? "block" : "none";
-        progressSteps[i].classList.toggle("active", i <= index);
+        step.classList.remove('active', 'animate__fadeIn');
+        step.style.display = i === index ? 'block' : 'none';
+        if (i === index) {
+          step.classList.add('active', 'animate__fadeIn');
+        }
+        progressSteps[i].classList.toggle('active', i <= index);
       });
     }
 
@@ -255,6 +264,13 @@
 
     nextBtns.forEach((btn) => {
       btn.addEventListener("click", () => {
+        if (currentStep === 1) {
+          const age = parseInt(ageInput.value);
+          if (isNaN(age) || age < 0) {
+            alert("Please enter a valid age.");
+            return;
+          }
+        }
         if (currentStep < steps.length - 1) {
           currentStep++;
           showStep(currentStep);
@@ -270,32 +286,39 @@
         }
       });
     });
-  });
 
-  // NSFW restriction
-  document.getElementById('nsfw').addEventListener('change', () => {
-    const age = parseInt(document.getElementById('age').value);
-    const warning = document.getElementById('ageWarning');
-    if (age < 18) {
-      warning.classList.remove('d-none');
-      document.getElementById('nsfw').checked = false;
-    } else {
-      warning.classList.add('d-none');
-    }
-  });
- // Auto calculate age from DOB
- $('#dob').on('change', function() {
-    var dob = new Date($(this).val());
-    var today = new Date();
-    var age = today.getFullYear() - dob.getFullYear();
-    var m = today.getMonth() - dob.getMonth();
-    
-    if (m < 0 || (m === 0 && today.getDate() < dob.getDate())) {
-      age--;
-    }
-    
-    $('#age').val(age); // Set calculated age
-  });
+    // Disable NSFW if underage
+    nsfwRadio.addEventListener('change', () => {
+      const age = parseInt(ageInput.value);
+      if (age < 18) {
+        ageWarning.classList.remove('d-none');
+        nsfwRadio.checked = false;
+      } else {
+        ageWarning.classList.add('d-none');
+      }
+    });
+
+    // Auto calculate age from DOB
+    document.getElementById('dob').addEventListener('change', function () {
+      const dob = new Date(this.value);
+      const today = new Date();
+      let age = today.getFullYear() - dob.getFullYear();
+      const m = today.getMonth() - dob.getMonth();
+      if (m < 0 || (m === 0 && today.getDate() < dob.getDate())) {
+        age--;
+      }
+      ageInput.value = age;
+
+      // Disable NSFW for underage users
+      if (age < 18) {
+        nsfwRadio.disabled = true;
+        nsfwRadio.checked = false;
+        ageWarning.classList.remove('d-none');
+      } else {
+        nsfwRadio.disabled = false;
+        ageWarning.classList.add('d-none');
+      }
+    });
 
   document.getElementById('regForm').addEventListener('submit', function(e) {
     e.preventDefault();
