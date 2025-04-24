@@ -68,14 +68,21 @@
   background-color: #0d6efd !important;
 }
 
-/* Steps */
-.custom-step {
+/* Base step: hidden by default */
+.step {
   display: none !important;
-  animation: fadeIn 1s !important;
+  opacity: 0;
+  transition: opacity 0.4s ease-in-out;
 }
 
-.custom-step.active {
+/* Active step: visible and animated */
+.step.active {
   display: block !important;
+  opacity: 1 !important;
+  z-index: 2;
+  position: relative;
+  animation-duration: 0.5s !important;
+  animation-fill-mode: both !important;
 }
 
 /* Buttons */
