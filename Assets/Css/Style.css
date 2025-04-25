@@ -10,83 +10,111 @@ body {
     padding: 0 !important;
     overflow-x: hidden !important;
   } 
-  #custom-header{
-    background: transparent !important;
-  }
+/* Header wrapper */
+#custom-header {
+  background: transparent !important;
+  top: 0;
+  position: relative !important
+  ;
+}
+
 /* Hero Section styles */
 #hero {
   background: linear-gradient(135deg, #6a11cb, #2575fc) !important;
-  color: white !important;
-  text-align: center !important;
-  height: 1100px !important;
+  color: white;
+  text-align: center;
+  height: 900px !important; /* Better responsive control than fixed 1100px */
   display: flex;
-  align-items: center; /* Vertically centers the content */
-  justify-content: center; /* Horizontally centers the content */
-  flex-direction: column; /* Ensure content stacks properly */
-  z-index: 1;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+
+  z-index: 1; /* Lower z-index to ensure it stays behind the navbar */
 }
 
-/* Navbar styles */
+/* Hero Text */
+#hero h2 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 30px;
+}
+
+#hero .btn-light {
+  background-color: white;
+  color: #007bff;
+  font-weight: 600;
+}
+
+#hero .btn-light:hover {
+  background-color: #0056b3;
+  color: white;
+}
+
 #custom-navbar {
-  border-radius: 50px !important;
-  background: rgba(0, 0, 0, 0.4) !important; /* Semi-transparent black background */
-  backdrop-filter: blur(10px) !important; /* Blurred background effect */
-  -webkit-backdrop-filter: blur(10px) !important; /* For Safari */
-  border: 1px solid rgba(255, 255, 255, 0.25) !important; /* Border with some transparency */
-  transition: all 0.3s ease-in-out !important;
-  background: linear-gradient(135deg, #6a11cb, #2575fc) !important; /* Add gradient to navbar */
+  border-radius: 30px !important;
+  background: #c94b4b;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #4b134f, #c94b4b);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #4b134f, #c94b4b); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */  
+  backdrop-filter: blur(10px); /* Main glassmorphism effect */
+  -webkit-backdrop-filter: blur(10px); /* For Safari */
+  border: 1px solid rgba(255, 255, 255, 0.25); /* Semi-transparent border */
+  transition: all 0.3s ease-in-out;
+  padding: 0.75rem 1.5rem;
+  z-index: 1000; /* Ensure navbar is above the hero section */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Optional: Adding shadow for more depth */
 }
 
+/* Optional hover effect to enhance the glass look */
 #custom-navbar:hover {
-  box-shadow: 0 0 30px rgba(0, 123, 255, 0.3) !important;
+  background: linear-gradient(to right, #4b134f, #7b2f51); /* Slightly change the gradient on hover */
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3); /* Enhance shadow on hover */
 }
-
+/* Logo */
 #custom-navbar img {
-  width: 140px !important;
-  height: 80px !important;
+  width: 100px !important;
+  height: 120px !important;
 }
 
+/* Nav Links */
 #custom-nav-links .nav-link {
-  position: relative !important;
-  padding: 0.5rem 1rem !important;
-  border-radius: 20px !important;
-  transition: all 0.2s ease-in-out !important;
+  position: relative;
+  padding: 0.5rem 1rem;
+  border-radius: 10px !important;
+  transition: all 0.2s ease-in-out;
+  color: #000 !important;
+  font-weight: 600;
 }
 
 #custom-nav-links .nav-link:hover {
-  background-color: rgba(0, 123, 255, 0.1) !important;
+  background-color: rgba(0, 123, 255, 0.1);
   color: #0d6efd !important;
 }
 
+/* Toggler Button */
 .navbar-toggler {
-  border-radius: 50px !important;
-  background-color: rgba(255, 255, 255, 0.7) !important;
-  transition: background-color 0.2s ease-in-out !important;
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.7);
+  transition: background-color 0.2s ease-in-out;
+  border: none;
 }
 
 .navbar-toggler:focus {
-  outline: none !important;
-  box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25) !important;
+  outline: none;
+  box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
 }
-  
- /* Styling for the heading */
-#hero h2 {
-    font-size: 3rem !important;
-    font-weight: 700 !important;
-    margin-bottom: 30px !important;
-  }
-  
-  /* Styling for the light button */
-  #hero .btn-light {
-    background-color: white !important;
-    color: #007bff !important;
-    font-weight: 600 !important;
-  }
-  
-  #hero .btn-light:hover {
-    background-color: #0056b3 !important;
-    color: white !important;
-  }
+
+/* Optional: Ensuring z-index layering for Three.js */
+#three-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0; /* Keep the three.js canvas behind everything else */
+}
+
   
   #features {
     background: linear-gradient(to right, #1a1a2e, #16213e, #0f3460) !important;
