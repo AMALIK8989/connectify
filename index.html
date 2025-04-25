@@ -28,9 +28,9 @@
 </head>
 <body>
 
-  <header id="custom-header" class="shadow-sm position-sticky top-0 z-3 ">
+  <header id="custom-header" class="shadow-sm  top-0 z-3 ">
     <div class="container py-3" id="nav-wrapper">
-      <nav id="custom-navbar" class="navbar navbar-expand-md rounded-pill px-4 py-2 shadow-sm bg-opacity-75 backdrop-blur">
+      <nav id="custom-navbar" class="navbar navbar-expand-md rounded-pill px-4 py-2 ">
         
         <!-- Logo & Brand -->
         <a class="navbar-brand d-flex align-items-center fw-bold text-primary logo-text" href="#">
@@ -71,97 +71,98 @@
         </div>
       </nav>
     </div>
+    <section class="bg-primary text-white text-center position-relative overflow-hidden" id="hero" >
+      <!-- Three.js Canvas Background -->
+      <div id="three-container" style="position:absolute; top:0; left:0; width:100%; height:100%; z-index:0;"></div>
+    
+      <div class="container position-relative" style="z-index: 2;">
+        <h2 class="display-4 fw-bold mb-3 wow fadeInDown">Create. Connect. Explore.</h2>
+        <p class="lead mb-4 wow fadeInUp">Freedom to share, freedom to express — your world, your rules.</p>
+        <a href="./Join.html" class="btn btn-light text-primary fw-bold px-5 py-2 rounded-pill wow zoomIn">Get Started</a>
+      </div>
+      <script>
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ alpha: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.getElementById('three-container').appendChild(renderer.domElement);
+      
+        // Glowing wireframe sphere
+        const glowMaterial = new THREE.MeshBasicMaterial({
+          color: 0x00ffff,
+          wireframe: true,
+          transparent: true,
+          opacity: 0.3
+        });
+        const glowSphere = new THREE.Mesh(new THREE.SphereGeometry(5, 64, 64), glowMaterial);
+        scene.add(glowSphere);
+      
+        // Particle system inside the sphere
+        const particleCount = 500;
+        const particlesGeometry = new THREE.BufferGeometry();
+        const positions = [];
+      
+        for (let i = 0; i < particleCount; i++) {
+          const x = (Math.random() - 0.5) * 10;
+          const y = (Math.random() - 0.5) * 10;
+          const z = (Math.random() - 0.5) * 10;
+          if (x * x + y * y + z * z < 25) { // inside sphere
+            positions.push(x, y, z);
+          }
+        }
+      
+        particlesGeometry.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
+      
+        const particlesMaterial = new THREE.PointsMaterial({
+          color: 0x00ffff,
+          size: 0.05,
+          transparent: true,
+          opacity: 0.8
+        });
+      
+        const particles = new THREE.Points(particlesGeometry, particlesMaterial);
+        scene.add(particles);
+      
+        // Lighting (Cyberpunk style)
+        const pointLight = new THREE.PointLight(0x00ffff, 1, 100);
+        pointLight.position.set(10, 10, 10);
+        scene.add(pointLight);
+      
+        const ambientLight = new THREE.AmbientLight(0x202040, 0.4);
+        scene.add(ambientLight);
+      
+        // Camera setup
+        camera.position.z = 15;
+      
+        // Animation loop
+        function animate() {
+          requestAnimationFrame(animate);
+      
+          glowSphere.rotation.x += 0.001;
+          glowSphere.rotation.y += 0.001;
+      
+          particles.rotation.x += 0.002;
+          particles.rotation.y += 0.003;
+      
+          renderer.render(scene, camera);
+        }
+      
+        animate();
+      
+        // Responsive canvas
+        window.addEventListener('resize', () => {
+          camera.aspect = window.innerWidth / window.innerHeight;
+          camera.updateProjectionMatrix();
+          renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+      </script>
+    </section>
+    
   </header>
   
   
+<main>
 
-
-<section class="bg-primary text-white text-center position-relative overflow-hidden" id="hero" >
-  <!-- Three.js Canvas Background -->
-  <div id="three-container" style="position:absolute; top:0; left:0; width:100%; height:100%; z-index:0;"></div>
-
-  <div class="container position-relative" style="z-index: 2;">
-    <h2 class="display-4 fw-bold mb-3 wow fadeInDown">Create. Connect. Explore.</h2>
-    <p class="lead mb-4 wow fadeInUp">Freedom to share, freedom to express — your world, your rules.</p>
-    <a href="./Join.html" class="btn btn-light text-primary fw-bold px-5 py-2 rounded-pill wow zoomIn">Get Started</a>
-  </div>
-  <script>
-    const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-    const renderer = new THREE.WebGLRenderer({ alpha: true });
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    document.getElementById('three-container').appendChild(renderer.domElement);
-  
-    // Glowing wireframe sphere
-    const glowMaterial = new THREE.MeshBasicMaterial({
-      color: 0x00ffff,
-      wireframe: true,
-      transparent: true,
-      opacity: 0.3
-    });
-    const glowSphere = new THREE.Mesh(new THREE.SphereGeometry(5, 64, 64), glowMaterial);
-    scene.add(glowSphere);
-  
-    // Particle system inside the sphere
-    const particleCount = 500;
-    const particlesGeometry = new THREE.BufferGeometry();
-    const positions = [];
-  
-    for (let i = 0; i < particleCount; i++) {
-      const x = (Math.random() - 0.5) * 10;
-      const y = (Math.random() - 0.5) * 10;
-      const z = (Math.random() - 0.5) * 10;
-      if (x * x + y * y + z * z < 25) { // inside sphere
-        positions.push(x, y, z);
-      }
-    }
-  
-    particlesGeometry.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
-  
-    const particlesMaterial = new THREE.PointsMaterial({
-      color: 0x00ffff,
-      size: 0.05,
-      transparent: true,
-      opacity: 0.8
-    });
-  
-    const particles = new THREE.Points(particlesGeometry, particlesMaterial);
-    scene.add(particles);
-  
-    // Lighting (Cyberpunk style)
-    const pointLight = new THREE.PointLight(0x00ffff, 1, 100);
-    pointLight.position.set(10, 10, 10);
-    scene.add(pointLight);
-  
-    const ambientLight = new THREE.AmbientLight(0x202040, 0.4);
-    scene.add(ambientLight);
-  
-    // Camera setup
-    camera.position.z = 15;
-  
-    // Animation loop
-    function animate() {
-      requestAnimationFrame(animate);
-  
-      glowSphere.rotation.x += 0.001;
-      glowSphere.rotation.y += 0.001;
-  
-      particles.rotation.x += 0.002;
-      particles.rotation.y += 0.003;
-  
-      renderer.render(scene, camera);
-    }
-  
-    animate();
-  
-    // Responsive canvas
-    window.addEventListener('resize', () => {
-      camera.aspect = window.innerWidth / window.innerHeight;
-      camera.updateProjectionMatrix();
-      renderer.setSize(window.innerWidth, window.innerHeight);
-    });
-  </script>
-</section>
 
 <!-- Features Section -->
 <section id="features" class="py-5">
@@ -808,7 +809,7 @@
         </div>
         
         <!-- (Optional) Placeholder Team Member 1 -->
-        <div class="col-md-4">
+        <!-- <div class="col-md-4">
           <div class="team-member shadow-sm p-4 rounded-4">
             <img src="path-to-your-image.jpg" alt="Team Member 2" class="img-fluid mb-3 rounded-circle">
             <h5 class="fw-bold">Your Name</h5>
@@ -817,7 +818,6 @@
           </div>
         </div>
   
-        <!-- (Optional) Placeholder Team Member 2 -->
         <div class="col-md-4">
           <div class="team-member shadow-sm p-4 rounded-4">
             <img src="path-to-your-image.jpg" alt="Team Member 3" class="img-fluid mb-3 rounded-circle">
@@ -825,7 +825,7 @@
             <p>Developer (or another role)</p>
             <p class="text-muted">A placeholder for future team members or additional roles that will join Connectify.</p>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
   </section>
@@ -838,7 +838,7 @@
     <a href="./Join.html" class="btn btn-light text-primary fw-bold px-5 py-3 rounded-pill wow bounceIn">Join Now</a>
   </div>
 </section>
-
+</main>
 <!-- Footer -->
 <footer class="bg-white border-top py-4 text-center">
   <div class="container">
