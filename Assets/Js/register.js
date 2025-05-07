@@ -10,7 +10,9 @@ $("#regForm").on("submit", function(e) {
             console.log(response);
             if (response.status === true) {
                 alert('Data inserted successfully!');
-                $('#regForm').html(''); 
+                $('#regForm').html('');  
+                
+                window.location.href = 'Sign-In.html';
             } else {
                 alert(response.message || 'Error inserting data.');
             }
